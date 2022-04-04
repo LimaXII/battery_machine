@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "stack_header.h"
 
 // Inicializa a pilha e retorna NULL.
@@ -192,7 +193,7 @@ ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl){
 ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
-    if(ptAux == NULL){
+    if(ptControl->counter < 2){
         printf("\nNot enough parameters on the stack.\n");
     }
     else{
@@ -210,7 +211,7 @@ ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl){
 ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
-    if(ptAux == NULL){
+    if(ptControl->counter < 2){
         printf("\nNot enough parameters on the stack.\n");
     }
     else{
@@ -227,6 +228,23 @@ ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl){
 // Espelha os bits do número armazenado no topo da pilha.
 ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl){
 
+}
+
+// Calcula a raiz quadrada do numero no topo da pilha.
+ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl){
+    ptSTCK *ptAux = ptStack;
+
+    if(ptAux == NULL){
+        printf("\nNot enough parameters on the stack.\n");
+    }
+    else{
+        // Percorre ela até o final da pilha.
+        while(ptAux->next != NULL){
+            ptAux = ptAux->next;
+        }
+        // Calcula a raiz quadrada do topo da pilha e coloca no registrador $R.       
+        ptControl->reg = sqrt(ptAux->top);       
+    }
 }
 
 // Imprime o topo da pilha na tela.

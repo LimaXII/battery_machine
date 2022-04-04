@@ -45,6 +45,8 @@ ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl);
 ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl);
 // Espelha os bits do número armazenado no topo da pilha.
 ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl);
+// Calcula a raiz quadrada do numero no topo da pilha.
+ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl);
 
 // Printa na tela o valor no topo da pilha.
 void Output(ptSTCK* ptStack);
