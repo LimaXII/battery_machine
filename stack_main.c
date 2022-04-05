@@ -14,6 +14,12 @@ int main(void){
     // TESTANDO COISAS
     short int num;
     ptStack = Initialize_Stack();
+    char lines[MAX_Strings][MAX_Lenght];
+    char instruction[6];
+    bool has_reg = false;
+    bool has_num = false;
+    int j = 0;
+    const char* filename = "teste.asm";
 
     /*
     // Teste com o programa do sor...
@@ -26,14 +32,8 @@ int main(void){
     ptStack = Push(ptStack, ptControl, ptControl->reg);
     Output(ptStack);
     */
-
-    char lines[MAX_Strings][MAX_Lenght];
-    char instruction[6];
-    bool reg = false;
-    bool has_num = false;
-    int j = 0;
-    const char* filename = "teste.asm";
-
+    
+    // Algoritmo responsável por abrir o arquivo e armazenar as strings de cada linha no array 2D lines
     FILE* input_file = fopen(filename, "r");
     if (!input_file)
         exit(EXIT_FAILURE);
@@ -62,11 +62,11 @@ int main(void){
     fclose(input_file);
     free(buffer);
 
-
+    // Algoritmo responsável por armazenar e verificar a instrução informada. Realizando o controle de leitura e execução linha a linha.
     for (int k = 0; k < j; k++){
         for (int i = 0; i <= strlen(lines[k] + 1); i++){
             if ((lines[k][i] >= 'A' && lines[k][i] <= 'Z') || (lines[k][i] >= 'a' && lines[k][i] <= 'z') || lines[k][i] == '\0'){
-                if (reg == false){
+                if (has_reg == false){
                     instruction[i] = lines[k][i];
                 }
             }
@@ -75,7 +75,7 @@ int main(void){
                 has_num = true;
             }
             else if (lines[k][i] == '$' && (lines[k][i+1] == 'R'|| lines[k][i+1] == 'r')){
-                reg = true;
+                has_reg = true;
             }
         }
 
@@ -86,12 +86,11 @@ int main(void){
         }
 
         if ((strcmp(instruction, "PUSH") == 0 || strcmp(instruction, "push") == 0) && has_num == true){
-            printf("%d-o\n", num);
             ptStack = Push(ptStack, ptControl, num);
             printf("executa PUSH N\n");
         }
 
-        if ((strcmp(instruction, "PUSH") == 0 || strcmp(instruction, "push") == 0) && reg == true){
+        if ((strcmp(instruction, "PUSH") == 0 || strcmp(instruction, "push") == 0) && has_reg == true){
             ptStack = Push(ptStack, ptControl, ptControl->reg);
             printf("executa PUSH $R\n");
         }
@@ -140,12 +139,12 @@ int main(void){
 
         if (strcmp(instruction, "OUT") == 0 || strcmp(instruction, "out") == 0){
             Output(ptStack);
-            printf("executa OUT\n");
+            printf("\nexecuta OUT\n");
         }
         
         memset(instruction,0,sizeof(instruction));
         has_num = false;
-        reg = false;
+        has_reg = false;
     }
     
 
