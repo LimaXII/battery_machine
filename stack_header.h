@@ -20,9 +20,9 @@ struct Stack_Control{
 // Inicializa a pilha.
 ptSTCK* Initialize_Stack();
 // Coloca um elemento no topo da pilha.
-ptSTCK* Push(ptSTCK* ptStack, ptCNTL* ptControl, short int num);
+ptSTCK* Push(ptSTCK* ptStack, ptCNTL* ptControl, short int num, int a, int b, int c);
 // Retira o elemento do topo da lista.
-ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 
 // Instruções que não possuem parâmetro.
 // Soma os dois elementos do topo da pilha e armazena o resultado em $R

@@ -9,14 +9,14 @@ ptSTCK* Initialize_Stack(){
 }
 
 // Aloca um elemento no topo da pilha.
-ptSTCK* Push(ptSTCK* ptStack, ptCNTL* ptControl, short int num){
+ptSTCK* Push(ptSTCK* ptStack, ptCNTL* ptControl, short int num, int a, int b, int c){
     ptSTCK *new, *ptAux = ptStack;
     new = (ptSTCK*) malloc(sizeof(ptSTCK));   
     new->top = num;   
 
     // Testa se a pilha já esta cheia.
     if(ptControl->counter >= (128)){        
-        printf("\nThe stack if full.\n");
+        printf("ERRO NA LINHA %d:PUSH EM QUEUE CHEIA\n", a - b + c + 1);
         return ptStack;
     }
     // Se não estiver, incrementar o contador.
@@ -45,11 +45,11 @@ ptSTCK* Push(ptSTCK* ptStack, ptCNTL* ptControl, short int num){
 }
 
 // Retira o elemento que está no topo da pilha.
-ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
     // Testa se a pilha está vazia.
     if (ptAux == NULL){
-        printf("\nThe stack is empty.\n");
+        printf("ERRO NA LINHA %d:POP EM QUEUE VAZIA\n", a - b + c + 1);
         return ptStack;
     }
     // Caso tenha apenas um elemento.
@@ -76,7 +76,7 @@ ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -94,7 +94,7 @@ ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -112,7 +112,7 @@ ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -130,7 +130,7 @@ ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -153,7 +153,7 @@ ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -177,7 +177,7 @@ ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptAux == NULL){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -194,7 +194,7 @@ ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -212,7 +212,7 @@ ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -235,7 +235,7 @@ ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptAux == NULL){
-        printf("\nNot enough parameters on the stack.\n");
+        printf("Not enough parameters on the stack.\n");
     }
     else{
         // Percorre ela até o final da pilha.
@@ -260,7 +260,7 @@ void Output(ptSTCK* ptStack){
         ptAux = ptAux->next;
         } 
         // Imprime o topo da pilha.
-        printf("\n%d", ptAux->top);        
+        printf("OUTPUT:%d\n", ptAux->top);        
     }    
 }
 
