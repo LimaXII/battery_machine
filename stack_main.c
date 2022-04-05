@@ -64,7 +64,7 @@ int main(void){
 
     // Algoritmo responsável por armazenar e verificar a instrução informada. Realizando o controle de leitura e execução linha a linha.
     for (int k = 0; k < j; k++){
-        for (int i = 0; i <= strlen(lines[k] + 1); i++){
+        for (int i = 0; i <= strlen(lines[k]) + 1; i++){
             if ((lines[k][i] >= 'A' && lines[k][i] <= 'Z') || (lines[k][i] >= 'a' && lines[k][i] <= 'z') || lines[k][i] == '\0'){
                 if (has_reg == false){
                     instruction[i] = lines[k][i];
