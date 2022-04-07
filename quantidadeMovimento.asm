@@ -1,6 +1,6 @@
 ; Algoritmo para cálculo de quantidade de movimento
 ; Q = m * v
-CLEAR			; limpa a pilha e configura o PC para o endereço zero
+CLEAR		; limpa a pilha e configura o PC para o endereço zero
 PUSH 2		; empurra o número 2 na pilha, a pilha é [2]
 PUSH 5		; empurra o número 5 na pilha, a pilha é [2, 5]
 MUL			; multiplica os dois valores no topo da pilha e empurra o resultado

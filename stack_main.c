@@ -6,12 +6,11 @@
 #define MAX_Strings 1000
 #define MAX_Lenght  100
 
-    
-
 int main(void){
     // Inicializa as variáveis de controle e vetores de strings.
     int total_lines = 0;
     int valid_lines = 0;
+    short int empty = 0;
     short int num = 0;
     bool has_reg;
     bool has_num;
@@ -20,6 +19,8 @@ int main(void){
     char lines[MAX_Strings][MAX_Lenght] = {0};
     char instruction[6] = {0};
     char number_string[6] = {0};
+    //const char* filename = "raizQuadrada.asm";
+    //const char* filename = "quantidadeMovimento.asm";
     const char* filename = "teste.asm";
     //char filename[MAX_Lenght] = {0}; Variável para armazenar uma string com o nome do arquivo dado pelo usuário.
 
@@ -164,7 +165,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Add(ptStack, ptControl);
+            Add(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou ADD\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "SUB") == 0 || strcmp(instruction, "sub") == 0){
@@ -172,7 +173,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Sub(ptStack, ptControl);
+            Sub(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou SUB\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "MUL") == 0 || strcmp(instruction, "mul") == 0){
@@ -180,7 +181,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Mul(ptStack, ptControl);
+            Mul(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou MUL\n");        // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA;
         }
         else if (strcmp(instruction, "DIV") == 0 || strcmp(instruction, "div") == 0){
@@ -188,7 +189,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Div(ptStack, ptControl);
+            Div(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou DIV\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "MOD") == 0 || strcmp(instruction, "mod") == 0){
@@ -196,7 +197,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Mod(ptStack, ptControl);
+            Mod(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou MOD\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "NOT") == 0 || strcmp(instruction, "not") == 0){
@@ -204,7 +205,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Not(ptStack, ptControl);
+            Not(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou NOT\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "OR") == 0 || strcmp(instruction, "or") == 0){
@@ -212,7 +213,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Or(ptStack, ptControl);
+            Or(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou OR\n");        // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "AND") == 0 || strcmp(instruction, "and") == 0){
@@ -220,7 +221,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            And(ptStack, ptControl);
+            And(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou AND\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "MIR") == 0 || strcmp(instruction, "mir") == 0){
@@ -236,7 +237,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            Sqrt(ptStack, ptControl);
+            Sqrt(ptStack, ptControl, total_lines, valid_lines, k);
             printf("executou SQRT\n");
         }
         else if (strcmp(instruction, "OUT") == 0 || strcmp(instruction, "out") == 0){
@@ -250,8 +251,7 @@ int main(void){
         else{
             printf("ERRO NA LINHA %d: INSTRUCAO INVALIDA\n", total_lines - valid_lines + k + 1);
             break;
-        }
-        printf("%d\n", ptControl->reg);         //DEBUG: IMPRIME O VALOR DO REGISTRADOR
+        }        
     }
     return 0;
 }

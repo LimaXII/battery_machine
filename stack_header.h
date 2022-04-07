@@ -26,27 +26,27 @@ ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 
 // Instruções que não possuem parâmetro.
 // Soma os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Subtrai os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Multiplica os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Divide os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Divide os dois elementos do topo da pilha e armazena o resto da divisão em $R
-ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 
 // Instruções que possuem parâmetro (apenas um operando).
 // Inverte os bits do elemento no topo da pilha.
-ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Realiza um OR com os bits do número armazenado no topo da pilha.
-ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Realiza um AND com os bits do número armazenado no topo da pilha.
-ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Espelha os bits do número armazenado no topo da pilha.
-ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 // Calcula a raiz quadrada do numero no topo da pilha.
-ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl);
+ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c);
 
 // Printa na tela o valor no topo da pilha.
 void Output(ptSTCK* ptStack);

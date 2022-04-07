@@ -72,11 +72,11 @@ ptSTCK* Pop(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
 
 // Instruções que não possuem parâmetro.
 // Soma os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -90,11 +90,11 @@ ptSTCK* Add(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Subtrai os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -108,11 +108,11 @@ ptSTCK* Sub(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Multiplica os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -126,11 +126,11 @@ ptSTCK* Mul(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Divide os dois elementos do topo da pilha e armazena o resultado em $R
-ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -139,7 +139,7 @@ ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl){
         }
         // Divide os dois elementos e armazena no registrador $R.
         if(ptAux->top == 0){
-            printf("\nZero in the denominator.\n");
+            printf("ERRO NA LINHA %d:DENOMIDOR COM ZERO.\n", a - b + c + 1);
         }
         else{
             ptControl->reg = ptAux->next->top;
@@ -149,11 +149,11 @@ ptSTCK* Div(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Divide os dois elementos do topo da pilha e armazena o resto da divisão em $R
-ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -162,7 +162,7 @@ ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl){
         }
         // Calcula o resto da divisão dois elementos e armazena no registrador $R.
         if(ptAux->top == 0){
-            printf("\nZero in the denominator.\n");
+            printf("ERRO NA LINHA %d:DENOMIDOR COM ZERO.\n", a - b + c + 1);
         }
         else{
             ptControl->reg = ptAux->next->top;
@@ -173,11 +173,11 @@ ptSTCK* Mod(ptSTCK* ptStack, ptCNTL* ptControl){
 
 // Instruções que possuem parâmetro (apenas um operando).
 // Inverte os bits do elemento no topo da pilha.
-ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptAux == NULL){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -190,11 +190,11 @@ ptSTCK* Not(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Realiza um OR com os bits do número armazenado no topo da pilha.
-ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -208,11 +208,11 @@ ptSTCK* Or(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Realiza um AND com os bits do número armazenado no topo da pilha.
-ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
     ptSTCK *ptAux = ptStack;
 
     if(ptControl->counter < 2){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
@@ -226,24 +226,56 @@ ptSTCK* And(ptSTCK* ptStack, ptCNTL* ptControl){
 }
 
 // Espelha os bits do número armazenado no topo da pilha.
-ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl){
+ptSTCK* Mir(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
+    int vet_bin[50];
+    int i = 0, j;
+    int num_saida = 0, num;
 
-}
-
-// Calcula a raiz quadrada do numero no topo da pilha.
-ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl){
     ptSTCK *ptAux = ptStack;
 
     if(ptAux == NULL){
-        printf("Not enough parameters on the stack.\n");
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
+    }
+    else{
+        while(ptAux->next != NULL){
+            ptAux = ptAux->next;
+        }
+        // transforma o numero do topo em binário
+        num = ptAux->top;
+        while (num > 0){
+            vet_bin[i] = num % 2;
+            i++;
+            num = num / 2;
+        }
+        // percorrendo o vetor do indice menor, para o maior (indice, tanto do vetor, quanto dos bits)
+        for (j = 0; j < i; j++){
+            if (vet_bin[j] == 1){                       // se o bit for igual a 1
+                num_saida = num_saida + pow(2, i-j-1);  // eleva 2 ao indice correspondente e soma ao resultado
+            }
+        }
+        ptControl->reg = num_saida;
+    }	
+}
+
+// Calcula a raiz quadrada do numero no topo da pilha.
+ptSTCK* Sqrt(ptSTCK* ptStack, ptCNTL* ptControl, int a, int b, int c){
+    ptSTCK *ptAux = ptStack;
+
+    if(ptAux == NULL){
+        printf("ERRO NA LINHA %d:SEM ELEMENTOS SUFICIENTES NA PILHA PARA REALIZAR A OPERAÇÃO.\n", a - b + c + 1);
     }
     else{
         // Percorre ela até o final da pilha.
         while(ptAux->next != NULL){
             ptAux = ptAux->next;
         }
-        // Calcula a raiz quadrada do topo da pilha e coloca no registrador $R.       
-        ptControl->reg = sqrt(ptAux->top);       
+        if (ptAux->top < 0){
+            printf("ERRO NA LINHA %d:OPERANDO NEGATIVO.\n", a - b + c + 1);
+        }
+        else{
+            // Calcula a raiz quadrada do topo da pilha e coloca no registrador $R.       
+            ptControl->reg = sqrt(ptAux->top);
+        }             
     }
 }
 
@@ -252,7 +284,7 @@ void Output(ptSTCK* ptStack){
     ptSTCK* ptAux = ptStack;
     // Testa se a pilha está vazia.
     if (ptAux == NULL){
-        printf("\n Empty stack. \n");
+        printf("\n PILHA VAZIA. \n");
     }
     else{
         // Percorre a pilha até o topo.

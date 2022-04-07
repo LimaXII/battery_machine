@@ -1,5 +1,4 @@
 ;Algoritmo para cáculo da raiz quadrada
-
 CLEAR		;limpa a pilha e configura o pc para 0	
 PUSH 9		;empurra o número 9 na pilla, pilha é[9]
 SQRT		;faz o calculo da raiz quadrada
