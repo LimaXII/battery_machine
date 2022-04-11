@@ -1,3 +1,21 @@
+/*
+Arquitetura e Organização de Computadores II - INF01112
+Professor Anderson Roberto Pinheiro Domingues
+Trabalho 2
+
+Alunos:
+Alan Elias Prestes Tatim
+Cartão UFRGS: 00324874
+
+Matheus Almeida Silva
+Cartão UFRGS: 00316326
+
+Luccas da Silva Lima
+Cartão UFRGS: 00324683
+
+Thiago Bischoff
+Cartão UFRGS: 00324856
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,17 +40,11 @@ int main(void){
     //const char* filename = "raizQuadrada.asm";
     //const char* filename = "quantidadeMovimento.asm";
     const char* filename = "teste.asm";
-    //char filename[MAX_Lenght] = {0}; Variável para armazenar uma string com o nome do arquivo dado pelo usuário.
 
     // Inicializa a pilha
     ptSTCK* ptStack;
     ptCNTL* ptControl;
     ptStack = Initialize_Stack();
-    
-    /* Código para receber um arquivo dado pelo usuário mas por algum motivo não funciona quando executado.
-    printf("Insira o nome do arquivo com a extensao:");
-    scanf("%s", filename);
-    */
 
     // Algoritmo responsável por abrir o arquivo e armazenar as strings de cada linha no array 2D lines
     // Realiza a abertura do arquivo no modo leitura e imprime o erro caso não consiga abrir.
@@ -229,7 +241,7 @@ int main(void){
                 printf("ERRO NA LINHA %d: ARGUMENTO INVALIDO\n", total_lines - valid_lines + k + 1);
                 break;
             }
-            // Mir(ptStack, ptControl)                                                          Falta implementar
+            Mir(ptStack, ptControl, total_lines, valid_lines, k);                                                          
             printf("executou MIR\n");       // DEBUG:IMPRIME A INSTRUÇÃO EXECUTADA
         }
         else if (strcmp(instruction, "SQRT") == 0 || strcmp(instruction, "sqrt") == 0){

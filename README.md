@@ -1,5 +1,5 @@
 ## stack_machine
-Trabalho final da disciplina de Arquitetura de Computadores 2
+Trabalho 2 da disciplina de Arquitetura e Organização de Computadores II - INF01112
 
 O código será implementado em C.
 
